@@ -1,9 +1,8 @@
 const Task = require("../Models/tasks");
 const express = require('express');
-const { route } = require('express/lib/application');
 const router = express.Router();
 
-route.post("/", async(req, res) => {
+router.post("/", async(req, res) => {
     try{
         const task = await new Task(req.body).save();
         res.send(task);
